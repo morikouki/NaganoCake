@@ -1,3 +1,35 @@
 <div class="row">
 	<h2>ジャンル一覧・追加</h2>
+	<div class="genre-form-box">
+		<%= form_with model: @genre, url: genres_path do |f| %>
+			<%= f.label :name, 'ジャンル' %>
+			<%= f.text_field :name %>
+			<%= f.submit '追加', class: 'btn btn-primary' %>
+		<% end %>
+	</div>
+
+	<div class="genre-box">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ジャンル</th>
+					<th>状態</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @genres.each do |genre| %>
+				<tr>
+					<td>
+						<%= genre.name %>
+					</td>
+					<td>状態</td>
+					<td>
+						<%= link_to '編集する', edit_genre_path(genre) %>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>
