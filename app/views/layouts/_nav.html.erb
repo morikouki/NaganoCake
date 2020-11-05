@@ -3,11 +3,6 @@
 	<ul class="nav-list">
 		<% if admin_signed_in? %>
 			<li class="nav-list-item">
-				<%= link_to destroy_admin_session_path do %>
-					管理者ログアウト
-				<% end %>
-			</li>
-			<li class="nav-list-item">
 				<%= link_to genres_path do %>
 					ジャンル一覧
 				<% end %>
@@ -15,6 +10,11 @@
 			<li class="nav-list-item">
 				<%= link_to products_path do %>
 					商品一覧
+				<% end %>
+			</li>
+			<li class="nav-list-item">
+				<%= link_to destroy_admin_session_path do %>
+					管理者ログアウト
 				<% end %>
 			</li>
 		<% else %>
