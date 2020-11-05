@@ -1,4 +1,41 @@
 <div class="row">
 	<h2>商品一覧</h2>
 	<%= link_to '商品登録', new_product_path %>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>商品ID</th>
+				<th>商品画像</th>
+				<th>商品名</th>
+				<th>税抜き価格</th>
+				<th>ジャンル</th>
+				<th>ステータス</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @products.each do |product| %>
+				<tr>
+					<td>
+						<%= product.id %>
+					</td>
+					<td>
+						<%= attachment_image_tag product, :image, size: '50x50' %>
+					</td>
+					<td>
+						<%= product.name %>
+					</td>
+					<td>
+						<%= product.price %>
+					</td>
+					<td>
+						<%= product.genre.name %>
+					</td>
+					<td>
+						<%= product.status ? "在庫あり" : "在庫なし" %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
