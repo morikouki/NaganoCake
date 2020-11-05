@@ -23,7 +23,9 @@
 						<%= attachment_image_tag product, :image, size: '50x50' %>
 					</td>
 					<td>
-						<%= product.name %>
+						<%= link_to product_path(product) do %>
+							<%= product.name %>
+						<% end %>
 					</td>
 					<td>
 						<%= product.price %>
