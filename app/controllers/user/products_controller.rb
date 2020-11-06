@@ -1,0 +1,9 @@
+class User::ProductsController < ApplicationController
+
+	def top
+	end
+
+	
+	def index
+	end
+end

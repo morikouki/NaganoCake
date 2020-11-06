@@ -14,5 +14,10 @@ Rails.application.routes.draw do
 
 	resources :genres, only: [:index, :create, :edit, :update]
 	resources :products
+
+	namespace :user do
+		resources :products, only: [:index, :show]
+		get 'top' => 'products#top'
+	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
