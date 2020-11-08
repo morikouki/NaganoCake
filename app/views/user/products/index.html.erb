@@ -7,10 +7,14 @@
 	</div>
 	<div class="col-xs-9">
 		<h3>商品一覧</h3>
-		<% @products.each do |product| %>
-			<%= attachment_image_tag product, :image, size: '50x50' %><br>
-			<%= product.name %><br>
-			¥<%= product.price %>
-		<% end %>
+		<div class="products-box">
+			<% @products.each do |product| %>
+				<div class="product-box">
+					<%= attachment_image_tag product, :image, size: '50x50' %><br>
+					<%= product.name %><br>
+					¥<%= product.price %>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>

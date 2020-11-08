@@ -5,25 +5,25 @@
 	</div>
 	<div class="col-xs-6">
 		<table>
-			<tr class="product-box">
+			<tr class="admin-product-box">
 				<th>商品名</th>
 				<td><%= @product.name %></td>
 			</tr>
-			<tr class="product-box">
+			<tr class="admin-product-box">
 				<th>商品説明</th>
 				<td><%= @product.explain %></td>
 			</tr>
-			<tr class="product-box">
+			<tr class="admin-product-box">
 				<th>ジャンル</th>
 				<td><%= @product.genre.name %></td>
 			</tr>
-			<tr class="product-box">
+			<tr class="admin-product-box">
 				<th>税込価格（税抜き価格）</th>
 				<% tax = 0.1 %>
 				<% tax_price = @product.price * tax %>
 				<td><%= (@product.price + tax_price).to_i %>(<%= @product.price %>)円</td>
 			</tr>
-			<tr class="product-box">
+			<tr class="admin-product-box">
 				<th>販売ステータス</th>
 				<td><%= @product.status?? '販売中': '売り切れ' %></td>
 			</tr>
