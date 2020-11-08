@@ -18,6 +18,14 @@ Rails.application.routes.draw do
 	namespace :user do
 		resources :products, only: [:index, :show]
 		get 'top' => 'products#top'
+
+		resources :customers, only: [:edit, :update] do
+			collection do
+				get 'my_page' => 'customers#my_page'
+				get 'confirm' => 'customers#confirm'
+	        	patch '/withdraw' => 'customers#withdraw'
+			end
+		end
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
