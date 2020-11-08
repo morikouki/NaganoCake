@@ -13,10 +13,14 @@
 			購入には会員登録が必要になります。
 		</p>
 		<h3>おすすめ商品</h3>
-		<% @products.each do |product| %>
-			<%= attachment_image_tag product, :image, size: '50x50' %><br>
-			<%= product.name %><br>
-			¥<%= product.price %>
-		<% end %>
+		<div class="top-product-box">
+			<% @products.each do |product| %>
+				<div class="top-product">
+					<%= attachment_image_tag product, :image, size: '50x50' %><br>
+					<%= product.name %><br>
+					¥<%= product.price %>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>
