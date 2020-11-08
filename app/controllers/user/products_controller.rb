@@ -8,6 +8,11 @@ class User::ProductsController < ApplicationController
 
 	def index
 		@genres = Genre.all
-		@products = Product.all
+		if params[:genre_id]
+			@genre = Genre.find(params[:genre_id])
+			@products = Product.where("genre_id LIKE?", "#{@genre.id}")
+		else
+			@products = Product.all
+		end
 	end
 end

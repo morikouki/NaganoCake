@@ -2,17 +2,24 @@
 	<div class="genre-box col-xs-3">
 		<h3>ジャンル検索</h3>
 		<% @genres.each do |genre| %>
-			<p><%= genre.name %></p>
+			<%= link_to user_products_path(genre_id: genre.id) do %>
+				<p><%= genre.name %></p>
+			<% end %>
 		<% end %>
 	</div>
 	<div class="col-xs-9">
-		<h3>商品一覧</h3>
+		<% if @genre == nil %>
+			<h3>商品一覧</h3>
+		<% else %>
+			<h3><%= @genre.name %>一覧</h3>
+		<% end %>
 		<div class="products-box">
 			<% @products.each do |product| %>
 				<div class="product-box">
 					<%= attachment_image_tag product, :image, size: '50x50' %><br>
 					<%= product.name %><br>
 					¥<%= product.price %>
+					<%= product.genre.id %>
 				</div>
 			<% end %>
 		</div>
