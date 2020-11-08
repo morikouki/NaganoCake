@@ -7,5 +7,7 @@ class User::ProductsController < ApplicationController
 
 
 	def index
+		@genres = Genre.all
+		@products = Product.all
 	end
 end

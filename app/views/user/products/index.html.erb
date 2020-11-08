@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="genre-box col-xs-3">
+		<h3>ジャンル検索</h3>
+		<% @genres.each do |genre| %>
+			<p><%= genre.name %></p>
+		<% end %>
+	</div>
+	<div class="col-xs-9">
+		<h3>商品一覧</h3>
+		<% @products.each do |product| %>
+			<%= attachment_image_tag product, :image, size: '50x50' %><br>
+			<%= product.name %><br>
+			¥<%= product.price %>
+		<% end %>
+	</div>
+</div>
