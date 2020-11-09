@@ -1,3 +1,42 @@
 <div class="row">
 	<h2>配送先一覧/登録</h2>
+	<%= form_with model: @shipping, url: user_shippings_path do |f| %>
+		<div class="form-group">
+			<%= f.label :post_code, '郵便番号（ハイフンなし）', class: 'col-xs-3' %>
+			<%= f.text_field :post_code %>
+		</div>
+		<div class="form-group">
+			<%= f.label :address, '住所', class: 'col-xs-3' %>
+			<%= f.text_field :address %>
+		</div>
+		<div class="form-group">
+			<%= f.label :name, '宛名', class: 'col-xs-3' %>
+			<%= f.text_field :name %>
+		</div>
+		<%= f.submit '登録', class: 'btn btn-success col-xs-offset-9' %>
+	<% end %>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>郵便番号</th>
+				<th>住所</th>
+				<th>宛名</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @shippings.each do |shipping| %>
+			<tr>
+				<td><%= shipping.post_code %></td>
+				<td><%= shipping.address %></td>
+				<td><%= shipping.name %></td>
+				<td>
+					編集する
+					削除
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
