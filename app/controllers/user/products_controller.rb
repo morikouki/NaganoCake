@@ -1,5 +1,8 @@
 class User::ProductsController < ApplicationController
 
+	before_action :tax_price, only: [:show]
+
+
 	def top
 		@genres = Genre.all
 		@products = Product.order("RANDOM()").all
@@ -19,6 +22,15 @@ class User::ProductsController < ApplicationController
 	def show
 		@genres = Genre.all
 		@product = Product.find(params[:id])
+	end
+
+	private
+
+	def tax_price
+		tax = 0.1
+		@product = Product.find(params[:id])
+		@tax_price = @product.price * tax
+		@tax_price = @product.price + @tax_price
 	end
 
 end

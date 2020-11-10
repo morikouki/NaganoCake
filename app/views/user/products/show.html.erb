@@ -2,7 +2,12 @@
 	<div class="genre-box col-xs-3">
 		<%= render 'genre_index', genres: @genres %>
 	</div>
-	<div class="col-xs-9">
-		<%= attachment_image_tag @customer, :image, size: '300x300' %>
+	<div class="col-xs-4">
+		<%= attachment_image_tag @product, :image, size: '300x300' %>
+	</div>
+	<div class="col-xs-5">
+		<h3><%= @product.name %></h3>
+		<%= @product.explain %><br>
+		¥<%= @tax_price.to_i %>(税込)
 	</div>
 </div>
