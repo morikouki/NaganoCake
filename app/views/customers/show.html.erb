@@ -1,31 +1,34 @@
 <div class="row">
-	<h2>会員情報詳細</h2>
-	<table>
-		<tr>
+	<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
+	<table class="customer-table" width='800'>
+		<tr height='50'>
 			<th>顧客ID</th>
-			<td><%= @customer.id %></td>
+			<td>
+				<%= @customer.id %>
+				<span class='btn-primary'><%= @customer.is_deleted?? '退会済' : '有効会員' %></span>
+			</td>
 		</tr>
-		<tr>
+		<tr height='50'>
 			<th>氏名</th>
 			<td><%= @customer.last_name %><%= @customer.first_name %></td>
 		</tr>
-		<tr>
+		<tr height='50'>
 			<th>フリガナ</th>
 			<td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
 		</tr>
-		<tr>
+		<tr height='50'>
 			<th>郵便番号</th>
 			<td><%= @customer.post_code %></td>
 		</tr>
-		<tr>
+		<tr height='50'>
 			<th>住所</th>
 			<td><%= @customer.address %></td>
 		</tr>
-		<tr>
+		<tr height='50'>
 			<th>電話番号</th>
 			<td><%= @customer.phone_number %></td>
 		</tr>
-		<tr>
+		<tr height='50'>
 			<th>メールアドレス</th>
 			<td><%= @customer.email %></td>
 		</tr>
