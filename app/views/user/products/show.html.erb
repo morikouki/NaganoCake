@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="genre-box col-xs-3">
+		<%= render 'genre_index', genres: @genres %>
+	</div>
+	<div class="col-xs-9">
+		<%= attachment_image_tag @customer, :image, size: '300x300' %>
+	</div>
+</div>

@@ -15,4 +15,10 @@ class User::ProductsController < ApplicationController
 			@products = Product.all
 		end
 	end
+
+	def show
+		@genres = Genre.all
+		@product = Product.find(params[:id])
+	end
+
 end

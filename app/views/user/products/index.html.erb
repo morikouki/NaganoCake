@@ -1,11 +1,6 @@
 <div class="row">
 	<div class="genre-box col-xs-3">
-		<h3>ジャンル検索</h3>
-		<% @genres.each do |genre| %>
-			<%= link_to user_products_path(genre_id: genre.id) do %>
-				<p><%= genre.name %></p>
-			<% end %>
-		<% end %>
+		<%= render 'genre_index', genres: @genres %>
 	</div>
 	<div class="col-xs-9">
 		<% if @genre == nil %>
@@ -16,8 +11,10 @@
 		<div class="products-box">
 			<% @products.each do |product| %>
 				<div class="product-box">
-					<%= attachment_image_tag product, :image, size: '50x50' %><br>
-					<%= product.name %><br>
+					<%= link_to user_product_path(product) do %>
+						<%= attachment_image_tag product, :image, size: '50x50' %><br>
+						<%= product.name %><br>
+					<% end %>
 					¥<%= product.price %>
 					<%= product.genre.id %>
 				</div>
