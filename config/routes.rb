@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 	resources :genres, only: [:index, :create, :edit, :update]
 	resources :products
+	resources :customers, only: [:index, :show, :edit, :update]
 
 	namespace :user do
 		resources :products, only: [:index, :show]
