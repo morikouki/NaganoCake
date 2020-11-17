@@ -1,6 +1,7 @@
 class User::CartItemsController < ApplicationController
 
 	def index
+		@cart_items = current_customer.cart_items
 	end
 
 	def create
@@ -12,7 +13,7 @@ class User::CartItemsController < ApplicationController
         	@cart_item.destroy
       	end
     	@cart_item.save
-    	redirect_to User_cart_items_path
+    	redirect_to user_cart_items_path
 
 	end
 
@@ -23,6 +24,8 @@ class User::CartItemsController < ApplicationController
 	end
 
 	def destroy_all
+		CartItem.destroy_all
+    	redirect_to user_products_path
 	end
 
 	private
