@@ -20,7 +20,12 @@
 						<%= attachment_image_tag cart_item.product, :image , size: "30x30" %>
 						<%= cart_item.product.name %>
 					</td>
+					<% tax = 1.0 %>
+					<% tax_price = cart_item.product.price * tax %>
+					<% sum = cart_item.product.price + tax_price %>
+					<td><%= (sum).to_i %></td>
 					<td><%= cart_item.amount %></td>
+					<td><%= (cart_item.amount * sum).to_i %></td>
 				</tr>
 			<% end %>
 		</tbody>
