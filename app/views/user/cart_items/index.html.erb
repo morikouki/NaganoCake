@@ -11,6 +11,7 @@
 				<th>数量</th>
 				<th>小計</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,6 +27,9 @@
 					<td><%= (sum).to_i %></td>
 					<td><%= cart_item.amount %></td>
 					<td><%= (cart_item.amount * sum).to_i %></td>
+					<td>
+						<%= link_to '削除', user_cart_item_path(cart_item), class: 'btn btn-dengar', method: :delete %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>
