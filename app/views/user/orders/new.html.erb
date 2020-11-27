@@ -1,3 +1,38 @@
 <div class="row">
-	
+	<h2>注文情報入力</h2>
+	<%= form_with model: @order, url: user_orders_path do |f| %>
+		<h4><strong>支払い方法</strong></h4>
+		<%= f.radio_button :payment, :クレジットカード, checked: true  %>
+		<%= f.label 'クレジットカード' %><br>
+		<%= f.radio_button :payment, :銀行振り込み %>
+		<%= f.label '銀行振り込み' %>
+
+		<h4><strong>お届け先</strong></h4>
+		<div>
+			<%= radio_button_tag("address_select", 0, checked: true) %>
+			<%= f.label 'ご自身の住所' %><br>
+			<p>
+				<%= current_customer.post_code %><%= current_customer.address %><br>
+				<%= current_customer.last_name %><%= current_customer.first_name %>
+			</p>
+		</div>
+
+		<div>
+			<%= radio_button_tag("address_select", 1) %>
+			<%= f.label "登録済み住所から選択" %><br>
+			<%= f.collection_select(:select_shipping, current_customer.shippings, :id, :select_shipping) %>
+		</div>
+
+		<div>
+			<%= radio_button_tag("address_select", 2) %>
+			<%= f.label "新しいお届け" %><br>
+			<%= f.label :post_code, '郵便番号' %>
+			<%= f.text_field :post_code %><br>
+			<%= f.label :address, '住所' %>
+			<%= f.text_field :address %><br>
+			<%= f.label :name, '宛名' %>
+			<%= f.text_field :name %>
+		</div>
+		<%= f.submit '確認画面へすすむ', class: 'btn btn-primary' %>
+	<% end %>
 </div>
